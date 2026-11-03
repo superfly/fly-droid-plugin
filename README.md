@@ -12,8 +12,8 @@ droid mcp auth
 
 Start Droid in the project to complete Factory login and folder trust. Fly OAuth
 is a separate browser flow. Use `--scope user` to install for all projects.
-While this repository has internal visibility, GitHub access is required. Availability here
-does not mean the plugin is listed in Factory's official marketplace.
+This repository is public. Availability here does not mean the plugin is listed
+in Factory's official marketplace.
 
 See [the plugin guide](plugins/fly/README.md) for prerequisites, example prompts,
 remote workspace behavior, authentication, and troubleshooting.
