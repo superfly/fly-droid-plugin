@@ -2,7 +2,7 @@
 
 This repository is a native Factory marketplace and plugin distribution. It is
 not yet listed in the official Factory marketplace. Preparation does not submit
-or publish the plugin, and the repository may still be private.
+or publish the plugin, and the repository currently has internal visibility.
 
 Factory documents the contribution process in
 [Factory-AI/factory-plugins](https://github.com/Factory-AI/factory-plugins#contributing):

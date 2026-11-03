@@ -15,12 +15,19 @@ deployed and no new Sprite was created for validation.
 - Fetching the exact upstream commit and re-running sync in check mode produced
   the committed payload without changes.
 - Both GitHub Actions workflows passed actionlint.
+- GitHub Actions validation passed for the initial pushed package at
+  `20c231b58602a8a0bbfdf3ec97395c103dbf1068`.
 
 ## Native package in Droid
 
 - Installed `fly@fly-droid-plugin` in a fresh project from a local marketplace.
   Its native `.factory-plugin/plugin.json` and `mcp.json` loaded successfully;
   cached skills and hooks matched the package files.
+- Separately installed the pushed Git commit
+  `20c231b58602a8a0bbfdf3ec97395c103dbf1068` in another fresh project.
+  All 25 cached package files matched the repository, and the connection again
+  authenticated with 75 tools. This used existing authorized GitHub access to
+  the internal repository; it is not evidence of anonymous/public installation.
 - `droid mcp list` reported the Fly server authenticated with 75 tools using
   protocol 2025-11-25. Factory and Fly logins already existed; first-time
   account signup and OAuth consent were not repeated.
@@ -53,6 +60,10 @@ The shared runtime notes describe remaining file-read, ownership, and service
 adapter limitations. Package installation does not deploy fixes to those APIs.
 
 ## Publication checks still required
+
+Prepared the documented copy-in catalog contribution locally and verified all
+25 copied package files against the distribution. Nothing was submitted to
+Factory's catalog.
 
 Before public submission, ensure repository access is public (or arranged with
 Factory), ensure the upstream pin is on `superfly/skills` main, and repeat the
