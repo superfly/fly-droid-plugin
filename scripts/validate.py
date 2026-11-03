@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
-"""Validate the installable native package and its locked shared payload."""
+"""Validate the installable native Factory package."""
 
 import json
 from pathlib import Path
 import re
 
-from sync_shared import ROOT, read_lock, verify
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def validate(root=ROOT):
-    verify(root, read_lock(root))
     plugin = root / "plugins/fly"
     manifest = json.loads((plugin / ".factory-plugin/plugin.json").read_text())
     if manifest["name"] != "fly" or not re.fullmatch(r"\d+\.\d+\.\d+", manifest["version"]):
@@ -53,4 +52,4 @@ def validate(root=ROOT):
 
 if __name__ == "__main__":
     validate()
-    print("Native Factory plugin, shared payload, and references validated")
+    print("Native Factory plugin and references validated")

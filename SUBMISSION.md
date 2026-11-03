@@ -11,18 +11,15 @@ and open a PR. Maintainer acceptance is separate from technical compatibility.
 
 ## Before submitting
 
-1. Merge the shared changes in [superfly/skills#6](https://github.com/superfly/skills/pull/6).
-   Confirm the commit in `upstream.lock.json` is reachable from upstream main.
-   If the PR was squashed, sync to the resulting main commit and revalidate.
-2. Make `superfly/fly-droid-plugin` publicly accessible, or agree on another
+1. Make `superfly/fly-droid-plugin` publicly accessible, or agree on another
    source/reviewer-access arrangement with Factory. This preparation does not
-change repository visibility (currently internal). Test installation without privileged GitHub
-   access before claiming public availability.
-3. Run the checks in README.md and a fresh Droid installation from the release
+   change repository visibility (currently internal). Test installation without
+   privileged GitHub access before claiming public availability.
+2. Run the checks in README.md and a fresh Droid installation from the release
    commit. Verify MCP OAuth and the plugin's hooks with Python 3 installed.
-4. Review the dated [validation evidence](VALIDATION.md), update any stale claims,
+3. Review the dated [validation evidence](VALIDATION.md), update any stale claims,
    and commit the release version before generating a pinned catalog entry.
-5. Supply reviewer access through their own Factory and Fly accounts. Do not put
+4. Supply reviewer access through their own Factory and Fly accounts. Do not put
    reusable credentials, user-specific Sprite IDs, or tokens in the submission.
 
 ## Prepare the contribution
@@ -41,7 +38,7 @@ working tree rather than including it in the catalog commit.
 
 The copied catalog payload is a release snapshot. Updates to this distribution
 do not automatically update Factory's copy; send a follow-up catalog PR for each
-release. The distribution's shared-source sync remains review-driven.
+release.
 
 Factory also documents remote `git-subdir` sources. If the maintainers prefer to
 reference our maintained repository, use a separate clean catalog checkout:

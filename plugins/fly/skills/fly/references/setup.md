@@ -84,33 +84,9 @@ There is no headless account-creation path.
 
 ## Agent tooling
 
-### Skills
-
-This skill installs from the `superfly/skills` repository:
-
-```bash
-npx skills add superfly/skills        # Claude Code, Codex, Cursor, Gemini, Amp and others
-```
-
-Re-run the same command to update. flyctl v0.5.2 and later can install the
-skills and register the hosted MCP server in every detected agent at once:
-
-```bash
-fly setup agent
-```
-
-Claude Code users can also install the plugin, which adds the hosted MCP
-connection and a confirmation hook:
-
-```text
-/plugin marketplace add superfly/skills
-/plugin install fly@fly-skills
-```
-
 ### Factory Droid plugin
 
-Install the native Factory package from `superfly/fly-droid-plugin`. It syncs
-the shared skills and confirmation guard from this repository:
+Install the Fly.io plugin for Factory Droid:
 
 ```bash
 droid plugin marketplace add superfly/fly-droid-plugin
@@ -125,7 +101,7 @@ complete Factory login and folder trust, then run `droid mcp auth` to authorize
 Fly separately. `droid mcp list` should show the plugin's `fly` server connected.
 Do not add a duplicate standalone MCP server when the plugin already supplies it.
 
-The shared hook handles Droid's `Execute` shell tool and its `fly___*` MCP
+The hook handles Droid's `Execute` shell tool and its `fly___*` MCP
 tool names, plus the `mcp__fly__*` form. That form also covers a standalone
 `fly` server registered by `fly setup agent` when the plugin is installed. For
 remote development, follow the
@@ -135,12 +111,8 @@ the plugin does not relocate Droid's built-in file or shell tools.
 ### Fly MCP connection
 
 The hosted server is `https://mcp.fly.io` over HTTP with browser OAuth. The
-plugin configures it; for a client without the plugin, register it as an HTTP
-MCP server, for example in Claude Code:
-
-```bash
-claude mcp add --transport http fly https://mcp.fly.io
-```
+plugin configures it. Use `droid mcp auth` for authentication and
+`droid mcp list` to check the connection.
 
 The first call triggers consent in the browser. The user selects organizations,
 apps, Managed Postgres and Sprites permissions, and the grant is per resource.

@@ -47,7 +47,7 @@ Droid's built-in file and shell tools still act on your local machine. Remote
 edits, tests, and service commands must run through Sprite tools. Keep the Sprite
 name, ID, and repository path in the handoff so the next session reuses it.
 
-The shared [Sprite guide](skills/fly/references/sprites.md) covers source transfer,
+The [Sprite guide](skills/fly/references/sprites.md) covers source transfer,
 baseline tests, checkpoints, patch export, supervised previews, and resuming work.
 Preview URLs can require authentication. Keep existing access restrictions;
 do not make a preview public merely to pass a health check.
@@ -58,7 +58,7 @@ The MCP endpoint is `https://mcp.fly.io`. It can operate only within the OAuth
 grant, including organization, app, product, and Sprite restrictions. Begin with
 `get_fly_context`. The plugin does not broaden access or supply credentials.
 
-The shared hook recognizes Droid's `Execute` and `fly___*` tool names and asks
+The hook recognizes Droid's `Execute` and `fly___*` tool names and asks
 before recognized destructive, disruptive, billable, and checkpoint-sensitive
 operations. It is a command-pattern guard, not a shell sandbox. When Python 3
 is missing or cannot run, it reports that the hook was skipped; ordinary Droid
@@ -79,7 +79,5 @@ Never copy credentials into source files, logs, or preview responses.
   known-issue notes in the Sprite guide record tested workarounds, not guarantees
   that every runtime has the same limitations.
 
-This package syncs its shared skills and guard from
-[superfly/skills](https://github.com/superfly/skills). See the
-[distribution repository](https://github.com/superfly/fly-droid-plugin) for the
-source pin, validation, and release process. MIT licensed. [Fly.io](https://fly.io)
+See the [distribution repository](https://github.com/superfly/fly-droid-plugin)
+for validation and the release process. MIT licensed. [Fly.io](https://fly.io)
