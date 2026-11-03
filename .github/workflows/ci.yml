@@ -1,17 +1,44 @@
-name: Validate Factory plugin
+name: CI
+
 on:
-  push:
   pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
 permissions:
   contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   validate:
+    name: Validate and test
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Check out repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: '3.12'
-      - run: python3 scripts/validate.py
-      - run: python3 scripts/test_fly_guard.py
-      - run: git diff --exit-code
+
+      - name: Compile Python
+        run: python -m compileall -q plugins scripts
+
+      - name: Validate plugin and marketplace
+        run: python scripts/validate.py
+
+      - name: Test confirmation hooks
+        run: python scripts/test_fly_guard.py
+
+      - name: Check for generated changes
+        run: git diff --exit-code
