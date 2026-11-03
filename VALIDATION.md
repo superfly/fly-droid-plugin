@@ -13,6 +13,12 @@ deployed and no new Sprite was created for validation.
 
 ## Native package in Droid
 
+- After the repository became public, cloned commit
+  `bef866383ddde9825202b70e2cbf48d1bdba235e` with Git credential helpers and
+  authentication headers disabled. Package validation and all 18 hook tests
+  passed from that clean clone. Droid 1.2.0 then installed the same public Git
+  commit in a fresh project and connected to all 75 Fly MCP tools using the
+  existing Fly OAuth session.
 - Installed `fly@fly-droid-plugin` in a fresh project from a local marketplace.
   Its native `.factory-plugin/plugin.json` and `mcp.json` loaded successfully;
   cached skills and hooks matched the package files.
@@ -52,11 +58,9 @@ tested against real resources; the guard uses synthetic fixtures instead.
 The runtime notes describe remaining file-read, ownership, and service
 adapter limitations. Package installation does not deploy fixes to those APIs.
 
-## Publication checks still required
+## Catalog contribution
 
 Prepared the documented copy-in catalog contribution locally and verified all
-25 copied package files against the distribution. Nothing was submitted to
-Factory's catalog.
-
-Before public submission, ensure repository access is public (or arranged with
-Factory) and repeat Git installation without privileged GitHub access.
+25 copied package files against the distribution. Public source access and
+installation are verified above. Catalog acceptance remains subject to
+Factory's review.

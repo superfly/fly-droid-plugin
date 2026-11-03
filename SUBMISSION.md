@@ -1,8 +1,8 @@
 # Factory marketplace submission
 
 This repository is a native Factory marketplace and plugin distribution. It is
-not yet listed in the official Factory marketplace. Preparation does not submit
-or publish the plugin, and the repository currently has internal visibility.
+not yet listed in the official Factory marketplace. The plugin source is public;
+catalog inclusion requires Factory's review and acceptance.
 
 Factory documents the contribution process in
 [Factory-AI/factory-plugins](https://github.com/Factory-AI/factory-plugins#contributing):
@@ -11,10 +11,8 @@ and open a PR. Maintainer acceptance is separate from technical compatibility.
 
 ## Before submitting
 
-1. Make `superfly/fly-droid-plugin` publicly accessible, or agree on another
-   source/reviewer-access arrangement with Factory. This preparation does not
-   change repository visibility (currently internal). Test installation without
-   privileged GitHub access before claiming public availability.
+1. Verify public access to `superfly/fly-droid-plugin` and test installation
+   without privileged GitHub access.
 2. Run the checks in README.md and a fresh Droid installation from the release
    commit. Verify MCP OAuth and the plugin's hooks with Python 3 installed.
 3. Review the dated [validation evidence](VALIDATION.md), update any stale claims,
